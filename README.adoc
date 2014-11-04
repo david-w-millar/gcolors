@@ -1,7 +1,8 @@
 # Groovy Colors
 David W Millar <david.w.millar@gmail.com>
+:compact-option:
 
-Lightweight groovy extension module that brings ansi colors and styles to strings.
+Lightweight groovy extension module that provides ansi colors and styles to strings in supported terminals.
 
 image:doc/inaction.png[Colors in action]
 
@@ -23,6 +24,41 @@ println "I'm the inverse of the line above".cyan().bgBlue().bold().inverse()
 
 This module attempts to determine if a terminal is capable of color.
 If not, it will not add any ansi escape characters to the string.
+
+
+## Color and Style Support
+
+.Colors
+- black
+- red
+- green
+- yellow
+- blue
+- magenta
+- cyan
+- white
+- gray
+- grey
+
+.Background Colors
+- bgBlack
+- bgRed
+- bgGreen
+- bgYellow
+- bgBlue
+- bgMagenta
+- bgCyan
+- bgWhite
+
+.Styles
+- bold
+- dim
+- italic
+- underline
+- inverse
+- hidden
+- strikethrough
+
 
 ### License
 
