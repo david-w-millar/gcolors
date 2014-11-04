@@ -1,0 +1,3 @@
+moduleName=gcolors
+moduleVersion=0.1.0
+extensionClasses=gcolors.ColorsExtension

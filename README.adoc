@@ -1,0 +1,33 @@
+# Groovy Colors
+David W Millar <david.w.millar@gmail.com>
+
+Lightweight groovy extension module that brings ansi colors and styles to strings.
+
+image:doc/inaction.png[Colors in action]
+
+## Installation
+
+Include this in your classpath. Groovy does the rest.
+
+
+## Usage
+
+.Example Usage
+[source, groovy]
+----
+println "red".red()
+println 'blue and underlined'.blue().underline()
+println "I'm all kinds of blue and bold".cyan().bgBlue().bold()
+println "I'm the inverse of the line above".cyan().bgBlue().bold().inverse()
+----
+
+This module attempts to determine if a terminal is capable of color.
+If not, it will not add any ansi escape characters to the string.
+
+### License
+
+This project is licensed under the terms of the
+http://www.apache.org/licenses/LICENSE-2.0.html[Apache License, Version 2.0].
+
+&copy; 2014 David W Millar
+
