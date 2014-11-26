@@ -1,14 +1,17 @@
-# Groovy Colors
+# gcolors
 David W Millar <david.w.millar@gmail.com>
 :compact-option:
 
 Lightweight groovy extension module that provides ansi colors and styles to strings in supported terminals.
+
+For more rigorous terminal acrobatics, checkout the awesome https://github.com/fusesource/jansi[jansi] project.
 
 image:doc/inaction.png[Colors in action]
 
 ## Installation
 
 Include this in your classpath. Groovy does the rest.
+Requires groovy >= 2.x .
 
 
 ## Usage

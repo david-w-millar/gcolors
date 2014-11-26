@@ -1,7 +1,12 @@
 apply plugin: 'groovy'
 apply plugin: 'application'
+apply plugin: 'signing'
+apply plugin: 'maven'
 
-description = "Groovy extension module that provides ansi colors and styling to strings"
+description   = "Groovy extension module that provides ansi colors and styling to strings"
+version       = version
+group            = 'org.millarts'
+archivesBaseName = name
 mainClassName = 'gcolors.Colors'
 
 repositories {
@@ -10,11 +15,11 @@ repositories {
 }
 
 dependencies {
-  compile 'org.codehaus.groovy:groovy-all:2.3.6'
-  testCompile 'org.spockframework:spock-core:1.0-groovy-2.0-SNAPSHOT'
-  testCompile 'org.codehaus.gpars:gpars:1.2.1'
-  testRuntime 'cglib:cglib-nodep:3.1'
-  testRuntime 'org.objenesis:objenesis:2.1'
+  compile "org.codehaus.groovy:groovy-all:${groovyVersion}"
+  testCompile "org.spockframework:spock-core:${spockVersion}"
 }
+
+
+
 
 

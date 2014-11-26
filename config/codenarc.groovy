@@ -1,5 +1,5 @@
 ruleset {
-    description 'Codenarc config for groovy-uri-templates project'
+    description 'Rather strict codenarc config'
 
     String spec_pattern = '.*Spec.*'
 
