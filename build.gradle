@@ -12,6 +12,10 @@ group            = 'org.millarts'
 archivesBaseName = name
 mainClassName = 'gcolors.Colors'
 
+ext {
+  isReleaseVersion = ! version.endsWith('SNAPSHOT')
+}
+
 repositories {
   mavenCentral()
   maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
