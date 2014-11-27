@@ -37,15 +37,15 @@ processResources {
     ]
 }
 
-codenarc {
-  configFile             = file "${project.projectDir}/config/codenarc.groovy"
-  ignoreFailures         = false
-  reportFormat           = 'html'
-  toolVersion            = codenarcVersion
-  maxPriority1Violations = 0
-  maxPriority2Violations = 0
-  maxPriority3Violations = 0
-}
+//codenarc {
+  //configFile             = file "${project.projectDir}/config/codenarc.groovy"
+  //ignoreFailures         = false
+  //reportFormat           = 'html'
+  //toolVersion            = codenarcVersion
+  //maxPriority1Violations = 0
+  //maxPriority2Violations = 0
+  //maxPriority3Violations = 0
+//}
 
 
 tasks.withType(Groovydoc) {
