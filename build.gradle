@@ -1,4 +1,7 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
 apply plugin: 'groovy'
+apply plugin: 'codenarc'
 apply plugin: 'application'
 apply plugin: 'signing'
 apply plugin: 'maven'
@@ -19,7 +22,108 @@ dependencies {
   testCompile "org.spockframework:spock-core:${spockVersion}"
 }
 
+processResources {
+  filter ReplaceTokens, tokens: [
+      version     : version,
+      buildDate   : new Date().format("yyyy-MM-dd HH   : mm : ss.SSSZ"),
+      username    : System.properties["user.name"],
+      javaVersion : System.properties["java.version"],
+      osName      : System.properties["os.name"],
+      osVersion   : System.properties["os.version"]
+    ]
+}
+
+codenarc {
+  configFile             = file "${project.projectDir}/config/codenarc.groovy"
+  ignoreFailures         = false
+  reportFormat           = 'html'
+  toolVersion            = codenarcVersion
+  maxPriority1Violations = 0
+  maxPriority2Violations = 0
+  maxPriority3Violations = 0
+}
 
 
+tasks.withType(Groovydoc) {
+  docTitle    = 'Groovy API Documentation for for gcolors $version'
+  windowTitle = 'Groovy API for gcolors $version'
+  footer      = "<p style='text-align: center'>Groovy API Documentation for gcolors $version - Licensed under the Apache License, Version 2.0 - <a href='https://github.com/david-w-millar/gcolors/'>gcolors</a></p>"
+}
 
+
+// ----- [ Packaging and publishing ] -----
+
+task sourceJar(type: Jar) {
+  classifier 'sources'
+  from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: groovydoc) {
+  classifier = 'javadoc'
+  from groovydoc
+}
+
+signing {
+  required { isReleaseVersion && gradle.taskGraph.hasTask('uploadArchives') }
+  sign configurations.archives
+}
+
+artifacts {
+  archives javadocJar
+  archives sourceJar
+  archives jar
+}
+
+
+uploadArchives { task ->
+  task.onlyIf { isReleaseVersion || ! project.hasProperty('ci') }
+
+  repositories {
+    mavenDeployer {
+      beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+      gradle.taskGraph.whenReady { taskGraph ->
+        if (taskGraph.hasTask(task)) {
+          repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+            authentication(userName: ossrhUsername, password: ossrhPassword)
+          }
+          snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+            authentication(userName: ossrhUsername, password: ossrhPassword)
+          }
+        }
+      }
+
+      pom.project {
+        name "${project.name}:${project.version}"
+        description "${project.description}"
+        inceptionYear '2014'
+        url projectUrl
+        packaging 'jar'
+
+        scm {
+          connection 'git@github.com:david-w-millar/gcolors'
+          developerConnection 'git@github.com:david-w-millar/gcolors'
+          url projectUrl
+        }
+
+        licenses {
+          license {
+            name 'The Apache License, Version 2.0'
+            url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+          }
+        }
+
+        developers {
+          developer {
+            id 'david-w-millar'
+            name 'David W Millar'
+            email 'david.w.millar@gmail.com'
+            organization projectUrl
+            organizationUrl projectUrl
+          }
+        }
+
+      }
+    }
+  }
+}
 
