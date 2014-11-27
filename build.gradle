@@ -6,9 +6,6 @@ apply plugin: 'application'
 apply plugin: 'signing'
 apply plugin: 'maven'
 
-description   = "Groovy extension module that provides ansi colors and styling to strings"
-version       = version
-group            = 'org.millarts'
 archivesBaseName = name
 mainClassName = 'gcolors.Colors'
 
