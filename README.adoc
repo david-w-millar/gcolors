@@ -2,6 +2,8 @@
 David W Millar <david.w.millar@gmail.com>
 :compact-option:
 
+image:https://travis-ci.org/david-w-millar/gcolors.svg["Build Status", link="https://travis-ci.org/david-w-millar/gcolors.svg"]
+
 Lightweight groovy extension module that provides ansi colors and styles to strings in supported terminals.
 
 For more rigorous terminal acrobatics, checkout the awesome https://github.com/fusesource/jansi[jansi] project.
