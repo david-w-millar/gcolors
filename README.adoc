@@ -3,6 +3,7 @@ David W Millar <david.w.millar@gmail.com>
 :compact-option:
 
 image:https://travis-ci.org/david-w-millar/gcolors.svg["Build Status", link="https://travis-ci.org/david-w-millar/gcolors.svg"]
+image:http://img.shields.io/maven-central/v/org.millarts/gcolors.svg["Maven Coordinates"]
 
 Lightweight groovy extension module that provides ansi colors and styles to strings in supported terminals.
 
