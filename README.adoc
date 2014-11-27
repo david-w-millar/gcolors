@@ -14,8 +14,27 @@ image:doc/inaction.png[Colors in action]
 ## Installation
 
 Include this in your classpath. Groovy does the rest.
-Requires groovy >= 2.x .
 
+[NOTE]
+Requires groovy 2.0 or later.
+
+.Gradle and Grails
+[source, groovy]
+compile 'org.millarts:gcolors:0.2.0'
+
+.Groovy Grape
+[source, groovy]
+@Grapes(
+  @Grab(group='org.millarts', module='gcolors', version='0.2.0')
+)
+
+.Maven
+[source, xml]
+<dependency>
+  <groupId>org.millarts</groupId>
+  <artifactId>gcolors</artifactId>
+  <version>0.2.0</version>
+</dependency>
 
 ## Usage
 
@@ -72,4 +91,6 @@ This project is licensed under the terms of the
 http://www.apache.org/licenses/LICENSE-2.0.html[Apache License, Version 2.0].
 
 &copy; 2014 David W Millar
+
+// vim: set syntax=asciidoc:
 
