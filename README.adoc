@@ -90,7 +90,7 @@ If not, it will not add any ansi escape characters to the string.
 This project is licensed under the terms of the
 http://www.apache.org/licenses/LICENSE-2.0.html[Apache License, Version 2.0].
 
-&copy; 2014 David W Millar
+&copy; 2015 David W Millar
 
 // vim: set syntax=asciidoc:
 

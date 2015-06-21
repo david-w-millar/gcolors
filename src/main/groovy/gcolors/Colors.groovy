@@ -4,13 +4,13 @@ import static gcolors.Styles.*
 
 /**
  * ALL THE COLORS! (AND STYLES!)
- * Showcase app / manual testing.
+ * Showcase App
  */
 class Colors {
 
   static final List<String> colors   = [ 'black', 'red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white', 'gray' ].asImmutable()
-  static final List<String> bgColors = (colors.collectAll { 'bg' + it.replaceFirst(/\w/, { it.toUpperCase() } ) } - 'bgGrey' - 'bgGray').asImmutable()
-  static final List<String> styles = [ 'bold', 'dim', 'italic', 'underline', 'inverse', 'hidden', 'strikethrough' ].asImmutable()
+  static final List<String> bgColors = (colors.collectNested { 'bg' + it.replaceFirst(/\w/, { it.toUpperCase() } ) } - 'bgGrey' - 'bgGray').asImmutable()
+  static final List<String> styles   = [ 'bold', 'dim', 'italic', 'underline', 'inverse', 'hidden', 'strikethrough' ].asImmutable()
 
   static void main(args) {
     showcase()

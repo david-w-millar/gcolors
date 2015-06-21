@@ -43,7 +43,7 @@ enum Styles {
   }
 
   String apply(final String target)  {
-    return isInteractive() ? "${open}${target}${close}" : target
+    isInteractive() ? "${open}${target}${close}" : target
   }
 
   String apply(final GString target) {

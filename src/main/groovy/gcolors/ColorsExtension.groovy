@@ -1,8 +1,6 @@
 package gcolors
 
 import static gcolors.Styles.*
-import org.codehaus.groovy.runtime.GStringImpl
-
 
 /**
  * Make strings pretty.
@@ -74,5 +72,6 @@ class ColorsExtension {
   static String inverse(final GString self) { inverse.apply(self) }
   static String hidden(final GString self) { hidden.apply(self) }
   static String strikethrough(final GString self) { strikethrough.apply(self) }
+
 }
 

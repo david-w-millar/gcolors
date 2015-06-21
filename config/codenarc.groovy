@@ -115,8 +115,8 @@ ruleset {
     // rulesets/dry.xml
     DuplicateListLiteral   { doNotApplyToFilesMatching = spec_pattern }
     DuplicateMapLiteral    { doNotApplyToFilesMatching = spec_pattern }
-    DuplicateNumberLiteral { doNotApplyToFilesMatching = spec_pattern }
-    DuplicateStringLiteral { doNotApplyToFilesMatching = spec_pattern }
+    //DuplicateNumberLiteral { doNotApplyToFilesMatching = spec_pattern }
+    //DuplicateStringLiteral { doNotApplyToFilesMatching = spec_pattern }
 
     // rulesets/enhanced.xml
     CloneWithoutCloneable
@@ -150,9 +150,9 @@ ruleset {
     BracesForIfElse
     BracesForMethod
     BracesForTryCatchFinally
-    ClassJavadoc
+    ClassJavadoc { doNotApplyToFilesMatching = spec_pattern }
     ClosureStatementOnOpeningLineOfMultipleLineClosure
-    LineLength { doNotApplyToFilesMatching = spec_pattern }
+    //LineLength { doNotApplyToFilesMatching = spec_pattern }
     SpaceAfterCatch
     SpaceAfterClosingBrace
     SpaceAfterComma
@@ -196,7 +196,7 @@ ruleset {
     // rulesets/groovyism.xml
     AssignCollectionSort
     AssignCollectionUnique
-    ClosureAsLastMethodParameter
+    //ClosureAsLastMethodParameter
     CollectAllIsDeprecated
     ConfusingMultipleReturns
     ExplicitArrayListInstantiation
@@ -272,7 +272,7 @@ ruleset {
     LoggingSwallowsStacktrace
     MultipleLoggers
     PrintStackTrace
-    Println
+    //Println
     SystemErrPrint
     SystemOutPrint
 
@@ -282,13 +282,13 @@ ruleset {
     ClassNameSameAsFilename
     ConfusingMethodName
     FactoryMethodName
-    FieldName
+    //FieldName
     InterfaceName
     MethodName { doNotApplyToFilesMatching = spec_pattern }
     ObjectOverrideMisspelledMethodName
     PackageName
     ParameterName
-    PropertyName
+    //PropertyName
     VariableName { finalRegex = /[A-Za-z][A-Za-z0-9_]*/ }
 
     // rulesets/security.xml
@@ -306,7 +306,7 @@ ruleset {
     EnumCustomSerializationIgnored
     SerialPersistentFields
     SerialVersionUID
-    SerializableClassMustDefineSerialVersionUID
+    //SerializableClassMustDefineSerialVersionUID
 
     // rulesets/size.xml
     // I'm particularly crazy about size rules
@@ -326,7 +326,7 @@ ruleset {
       maxMethodComplexity = 10
       maxClassAverageMethodComplexity = 5
     }
-    MethodCount      { maxMethods = 20 }
+    //MethodCount      { maxMethods = 20 }
     MethodSize       {
       doNotApplyToFilesMatching = spec_pattern
       maxLines = 20
@@ -355,7 +355,7 @@ ruleset {
     UnnecessaryElseStatement
     UnnecessaryFinalOnPrivateMethod
     UnnecessaryFloatInstantiation
-    UnnecessaryGString
+    //UnnecessaryGString
     UnnecessaryGetter
     UnnecessaryIfStatement
     UnnecessaryInstanceOfCheck

@@ -1,4 +1,4 @@
-package gcolors;
+package gcolors
 
 import spock.lang.*
 import spock.util.mop.ConfineMetaClassChanges
@@ -12,7 +12,7 @@ class ColorsSpec extends Specification {
 
     when:
     List<String> colors   = [ 'black', 'red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white', 'gray' ]
-    List<String> bgColors = colors.collectAll { 'bg' + it.replaceFirst(/\w/, { it.toUpperCase() } ) } - 'bgGrey' - 'bgGray'
+    List<String> bgColors = colors.collectNested { 'bg' + it.replaceFirst(/\w/, { it.toUpperCase() } ) } - 'bgGrey' - 'bgGray'
     List<String> styles = [ 'bold', 'dim', 'italic', 'underline', 'inverse', 'hidden', 'strikethrough' ]
 
     then:
