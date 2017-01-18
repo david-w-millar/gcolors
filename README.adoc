@@ -15,17 +15,27 @@ image:doc/inaction.png[Colors in action]
 
 Include this in your classpath. Groovy does the rest.
 
+Checkout [this bintray repo](https://bintray.com/david-w-millar/maven/gcolors/) for full details
+regarding how to use this.
+
 [NOTE]
 Requires groovy 2.0 or later.
 
 .Gradle and Grails
 [source, groovy]
-compile 'org.millarts:gcolors:0.5.0'
+  repositories {
+    // ...
+    maven { url  "http://dl.bintray.com/david-w-millar/maven" }
+  }
+  dependencies {
+    // ...
+    compile 'org.millarts:gcolors:0.5.1'
+  }
 
 .Groovy Grape
 [source, groovy]
 @Grapes(
-  @Grab(group='org.millarts', module='gcolors', version='0.5.0')
+  @Grab(group='org.millarts', module='gcolors', version='0.5.1')
 )
 
 .Maven
@@ -33,7 +43,7 @@ compile 'org.millarts:gcolors:0.5.0'
 <dependency>
   <groupId>org.millarts</groupId>
   <artifactId>gcolors</artifactId>
-  <version>0.5.0</version>
+  <version>0.5.1</version>
 </dependency>
 
 ## Usage

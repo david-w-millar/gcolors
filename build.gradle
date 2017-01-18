@@ -22,8 +22,10 @@ repositories {
 }
 
 dependencies {
-  compile     "org.codehaus.groovy:groovy-all:${groovyVersion}"
-  testCompile "org.spockframework:spock-core:${spockVersion}"
+  compile "org.codehaus.groovy:groovy:${groovyVersion}"
+  testCompile("org.spockframework:spock-core:${spockVersion}") {
+    exclude module: 'groovy-all'
+  }
   asciidoclet "org.asciidoctor:asciidoclet:${asciidocletVersion}"
 }
 
