@@ -25,6 +25,7 @@ Temporary Items
 ### Gradle ###
 .gradle
 build/
+.gradletasknamecache
 
 ### Intellij ###
 /*.iml
