@@ -3,9 +3,9 @@ plugins {
   id 'codenarc'
   id 'application'
 
+  id 'com.jfrog.bintray' version '1.7.3'
   id 'nebula.info' version '3.5.0'
   id 'nebula.project' version '3.3.0'
-  id 'nebula.nebula-bintray' version '3.5.2'
   id 'nebula.release' version '4.1.1'
 }
 
@@ -48,71 +48,34 @@ tasks.withType(Groovydoc) {
   footer      = "<p style='text-align: center'>Groovy API Documentation for gcolors ${version} - Licensed under the Apache License, Version 2.0 - <a href='https://github.com/david-w-millar/gcolors/'>gcolors</a></p>"
 }
 
+artifacts { archives jar }
 
+bintray {
+  user           = System.getenv('BINTRAY_USER')
+  key            = System.getenv('BINTRAY_KEY')
+  configurations = ["archives"]
+  pkg {
+    repo     = "maven"
+    name     = project.name
+    licenses = ["Apache-2.0"]
+    vcsUrl   = "https://github.com/david-w-millar/gcolors"
+    version {
+      name     = project.version
+      vcsTag   = project.version
+      desc     = project.description
+      released = new Date()
+    }
+  }
+}
 
-
-// ----- [ Publishing ] -----
-
-//signing {
-  //required { isReleaseVersion && gradle.taskGraph.hasTask('uploadArchives') }
-  //sign configurations.archives
-//}
-
-//artifacts {
-  //archives javadocJar
-  //archives sourceJar
-  //archives jar
-//}
-
-//uploadArchives { task ->
-  //task.onlyIf { isReleaseVersion || ! project.hasProperty('ci') }
-
-  //repositories {
-    //mavenDeployer {
-      //beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-      //gradle.taskGraph.whenReady { taskGraph ->
-        //if (taskGraph.hasTask(task)) {
-          //repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
-            //authentication(userName: ossrhUsername, password: ossrhPassword)
-          //}
-          //snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
-            //authentication(userName: ossrhUsername, password: ossrhPassword)
-          //}
-        //}
-      //}
-
-      //pom.project {
-        //name "${project.name}:${project.version}"
-        //description "${project.description}"
-        //inceptionYear '2015'
-        //url projectUrl
-        //packaging 'jar'
-
-        //scm {
-          //connection 'git@github.com:david-w-millar/gcolors'
-          //developerConnection 'git@github.com:david-w-millar/gcolors'
-          //url projectUrl
-        //}
-
-        //licenses {
-          //license {
-            //name 'The Apache License, Version 2.0'
-            //url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-          //}
-        //}
-
-        //developers {
-          //developer {
-            //id 'david-w-millar'
-            //name 'David W Millar'
-            //email 'david.w.millar@gmail.com'
-            //organization projectUrl
-            //organizationUrl projectUrl
-          //}
-        //}
-
-      //}
-    //}
-  //}
-//}
+publishing {
+    publications {
+        GroovyPluralize(MavenPublication) {
+            from components.java
+            groupId project.group
+            artifactId project.name
+            version project.version
+        }
+    }
+}
 
