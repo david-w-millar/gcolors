@@ -29,13 +29,13 @@ Requires groovy 2.0 or later.
   }
   dependencies {
     // ...
-    compile 'org.millarts:gcolors:0.5.1'
+    compile 'org.millarts:gcolors:0.5.2'
   }
 
 .Groovy Grape
 [source, groovy]
 @Grapes(
-  @Grab(group='org.millarts', module='gcolors', version='0.5.1')
+  @Grab(group='org.millarts', module='gcolors', version='0.5.2')
 )
 
 .Maven
@@ -43,7 +43,7 @@ Requires groovy 2.0 or later.
 <dependency>
   <groupId>org.millarts</groupId>
   <artifactId>gcolors</artifactId>
-  <version>0.5.1</version>
+  <version>0.5.2</version>
 </dependency>
 
 ## Usage
