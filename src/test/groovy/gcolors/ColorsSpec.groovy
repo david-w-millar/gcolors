@@ -32,7 +32,7 @@ class ColorsSpec extends Specification {
   }
 
   @ConfineMetaClassChanges(ConsoleUtils)
-  void 'styles and colors are applied for non-interactive environments'() {
+  void 'styles and colors are applied for interactive environments'() {
     when: ConsoleUtils.metaClass.'static'.isInteractive = { true }
     then: 'red'.red() != 'red'
   }

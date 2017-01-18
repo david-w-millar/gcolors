@@ -5,7 +5,7 @@ import static gcolors.Styles.*
 /**
  * Make strings pretty.
  *
- * @since 1.0.0
+ * @since 0.1.0
  */
 class ColorsExtension {
 
@@ -45,7 +45,7 @@ class ColorsExtension {
 
   static String reset(final GString self) { reset.apply(self) }
 
-  static String black(final GString self) { black.apply(self) }
+  static String black(final GString self)   { black.apply(self) }
   static String red(final GString self)     { red.apply(self) }
   static String green(final GString self)   { green.apply(self) }
   static String yellow(final GString self)  { yellow.apply(self) }
@@ -65,12 +65,12 @@ class ColorsExtension {
   static String bgCyan(final GString self)    { bgCyan.apply(self) }
   static String bgWhite(final GString self)   { bgWhite.apply(self) }
 
-  static String bold(final GString self) { bold.apply(self) }
-  static String dim(final GString self) { dim.apply(self) }
-  static String italic(final GString self) { italic.apply(self) }
+  static String bold(final GString self)      { bold.apply(self) }
+  static String dim(final GString self)       { dim.apply(self) }
+  static String italic(final GString self)    { italic.apply(self) }
   static String underline(final GString self) { underline.apply(self) }
-  static String inverse(final GString self) { inverse.apply(self) }
-  static String hidden(final GString self) { hidden.apply(self) }
+  static String inverse(final GString self)   { inverse.apply(self) }
+  static String hidden(final GString self)    { hidden.apply(self) }
   static String strikethrough(final GString self) { strikethrough.apply(self) }
 
 }

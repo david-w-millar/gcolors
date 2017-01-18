@@ -3,10 +3,10 @@ plugins {
   id 'codenarc'
   id 'application'
 
-  id 'nebula.info' version '2.2.2'
-  id 'nebula.nebula-project' version '2.2.1'
-  id 'nebula.nebula-publishing' version '2.2.2'
-  id 'nebula.nebula-release' version '2.2.6'
+  id 'nebula.info' version '3.5.0'
+  id 'nebula.project' version '3.3.0'
+  id 'nebula.nebula-bintray' version '3.5.2'
+  id 'nebula.release' version '4.1.1'
 }
 
 archivesBaseName = name
@@ -18,6 +18,7 @@ configurations {
 
 repositories {
   mavenCentral()
+  jcenter()
 }
 
 dependencies {
