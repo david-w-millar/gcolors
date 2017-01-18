@@ -14,7 +14,7 @@ class ConsoleUtils {
 
   @Memoized
   static Boolean isInteractive() {
-    System.getEnv(FORCE_COLOR_ENV_VAR_NAME) || System.console()?.tty
+    System.getenv(FORCE_COLOR_ENV_VAR_NAME) || System.console()?.tty
   }
 }
 
