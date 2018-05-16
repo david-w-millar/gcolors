@@ -70,7 +70,7 @@ bintray {
 
 publishing {
     publications {
-        GroovyPluralize(MavenPublication) {
+        GColors(MavenPublication) {
             from components.java
             groupId project.group
             artifactId project.name
